@@ -23,6 +23,9 @@ bin_name="Evil_Installer_Test_File_8868f8c0-f08a-432c-8a6e-9bddc2b5ea35.bin"
 # default file size
 # the bs= of dd used in this script is 1M(means 1 MiB)
 bin_size="16"
+# log path
+# use to record evil mode's file path
+evil_log_path="$HOME/.evil_install_evil_file_paths.txt"
 
 # default mode is general
 case "$1" in
@@ -37,13 +40,19 @@ general)
     fi
     ;;
 evil)
+    if [[ -f "$evil_log_path" ]]; then
+        echo "The evil mode log file already existed:"
+        echo "$evil_log_path"
+        exit 1
+    fi
+
     for i in {1..12}; do
         bin_name="$(uuidgen).bin"
         rand_path="$(RandomPath "$bin_name")"
         bin_size=""$(($RANDOM % 512 + 64))
 
         if [[ "$2" == "confirm" ]]; then
-            echo "$rand_path/$bin_name"
+            echo "$rand_path/$bin_name" >> $evil_log_path
             dd if=/dev/random of="$rand_path/$bin_name" bs=1M count="${bin_size}" oflag=sync
         else
             echo "[dry-run] File; number: $i; size: $bin_size * 1MiB; path: $rand_path/$bin_name"
