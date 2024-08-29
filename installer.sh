@@ -29,6 +29,11 @@ evil_log_path="$HOME/.evil_install_evil_file_paths.txt"
 
 # default mode is general
 case "$1" in
+help | --help | -h)
+    echo "Usage: installer.sh <MODE> [...]"
+    echo "MODE list: help; general [confirm]; evil [confirm];"
+    echo "If the MODE has no 'confirm' argument, it means dry-run"
+    ;;
 general)
     rand_path="$(RandomPath "$bin_name")"
 
