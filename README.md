@@ -52,8 +52,4 @@ The list of them are storage in the `~/.evil_installer_file_path_list.txt`
 
 ## Todo
 
-- More permission checks.
-- Implement the most evil mode:
-  - Multiple files;
-  - Completely random file name;
-  - And no any output log
+- NULL
