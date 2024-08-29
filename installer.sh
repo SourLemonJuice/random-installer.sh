@@ -25,7 +25,7 @@ bin_name="Evil_Installer_Test_File_8868f8c0-f08a-432c-8a6e-9bddc2b5ea35.bin"
 bin_size="16"
 # log path
 # use to record evil mode's file path
-evil_log_path="$HOME/.evil_install_evil_file_paths.txt"
+evil_log_path="$HOME/.evil_installer_file_path_list.txt"
 
 # default mode is general
 case "$1" in
