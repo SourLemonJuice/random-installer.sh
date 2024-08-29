@@ -26,16 +26,15 @@ bin_size="16"
 
 # default mode is general
 case "$1" in
-dry-run)
-    rand_path="$(RandomPath "$bin_name")"
-
-    echo "Evil file path at here: $rand_path/$bin_name"
-    ;;
 general)
     rand_path="$(RandomPath "$bin_name")"
 
-    echo "Evil file path at here: $rand_path/$bin_name"
-    dd if=/dev/random of="$rand_path/$bin_name" bs=1M count="${bin_size}" oflag=sync status=progress
+    if [[ "$2" == "confirm" ]]; then
+        echo "Evil file path at here: $rand_path/$bin_name"
+        dd if=/dev/random of="$rand_path/$bin_name" bs=1M count="${bin_size}" oflag=sync status=progress
+    else
+        echo "[dry-run] File; size: $bin_size * 1MiB; path: $rand_path/$bin_name"
+    fi
     ;;
 evil)
     for i in {1..12}; do
@@ -44,8 +43,8 @@ evil)
         bin_size=""$(($RANDOM % 512 + 64))
 
         if [[ "$2" == "confirm" ]]; then
-            # dd if=/dev/random of="$rand_path/$bin_name" bs=1M count="${bin_size}" oflag=sync
-            :
+            echo "$rand_path/$bin_name"
+            dd if=/dev/random of="$rand_path/$bin_name" bs=1M count="${bin_size}" oflag=sync
         else
             echo "[dry-run] File; number: $i; size: $bin_size * 1MiB; path: $rand_path/$bin_name"
         fi
