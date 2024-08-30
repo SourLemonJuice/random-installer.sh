@@ -1,16 +1,16 @@
 # random-installer.sh
 
-Use bash to generate a Large file into the random directory
+Use bash to generate some Large file into the random directory
 
 > [!WARNING]
 > It's a very evil script, think about the consequence before the joke.\
-> And make sure the file name is easy to search, and the path prefix is in the expected
+> Check for yourself the filenames are easy to search, and the path prefix is in the expected(default is ~/.local/share/)
 
 ## Introduce
 
 Here is the thing, I opened a Code With Me Invent link and followed the client download command.\
 It's all right up here. But they don't tell me how to uninstall that, it makes me search and search again.\
-I just want to uninstall this client from an **unconventional** script...
+I just want to uninstall this client which was installed via an **unconventional** script...
 
 It really makes me angry, so I made this even more evil script
 
@@ -30,7 +30,7 @@ If the MODE has no 'confirm' argument, it means dry-run
 
 ### General mode
 
-Generate **one** **16MiB** large file into a random director(in ~/.local/share/)
+Generate **one** **16MiB** file into a random director(in ~/.local/share/)
 
 The script will print its full path, rest assured of that
 
@@ -42,7 +42,7 @@ Although, it dose take some time
 
 **Evil**!!!
 
-It will generate **twelve** **64-512MiB** large files, each file's directory same as the [#General mode](#general-mode)
+It will generate **twelve** **64-512MiB** files, each file's directory same as the [#General mode](#general-mode)
 
 The filename is randomized now(by `uuidgen` command).\
 They look like: `7e66fc14-73de-44e0-a2e9-c69ed4db7c5b.bin`

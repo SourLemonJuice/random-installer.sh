@@ -30,8 +30,8 @@ evil_log_path="$HOME/.evil_installer_file_path_list.txt"
 # default mode is general
 case "$1" in
 help | --help | -h)
-    echo "Usage: installer.sh <MODE> [...]"
-    echo "MODE list: help; general [confirm]; evil [confirm];"
+    echo "Usage: installer.sh [help | --help | -h] <MODE> [<args>]"
+    echo "MODE list: general [confirm]; evil [confirm];"
     echo "If the MODE has no 'confirm' argument, it means dry-run"
     ;;
 general)
