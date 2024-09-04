@@ -6,10 +6,13 @@
 # return 1 is error; 0 is OK
 function RandomPath
 {
-    local rand_line=$(echo $(($RANDOM % 1024 * 18 + 1)))
-    local rand_path=$(find ~/.local/share/ -type d | sed -n ${rand_line}'{p;q}')
+    local rand_line
+    local rand_path
 
     while true; do
+        rand_line=$(echo $(($RANDOM % 1024 * 18 + 1)))
+        rand_path=$(find ~/.local/share/ -type d | sed -n ${rand_line}'{p;q}')
+
         if [[ ! -e "$rand_path/$1" ]]; then
             break
         fi
